@@ -21,18 +21,18 @@ public class Client implements Serializable {
 	private String cpf;
 	private Double income;
 	private Instant birthDate;
-	private Integer chidren;
+	private Integer children;
 	
 	public Client() {
 	}
 
-	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer chidren) {
+	public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.income = income;
 		this.birthDate = birthDate;
-		this.chidren = chidren;
+		this.children = children;
 	}
 
 	public Long getId() {
@@ -76,11 +76,11 @@ public class Client implements Serializable {
 	}
 
 	public Integer getChidren() {
-		return chidren;
+		return children;
 	}
 
 	public void setChidren(Integer chidren) {
-		this.chidren = chidren;
+		this.children = chidren;
 	}
 
 	@Override
