@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsClient.entities.Client;
 import com.devsuperior.dsClient.repositories.ClientRepository;
@@ -14,8 +15,8 @@ public class ClientService {
 	@Autowired
 	public ClientRepository clientRepository;
 	
+	@Transactional(readOnly = true)
 	public List<Client> findAll() {
-		
 		return clientRepository.findAll();
 	}
 }
