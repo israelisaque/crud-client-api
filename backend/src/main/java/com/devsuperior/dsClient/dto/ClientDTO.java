@@ -33,7 +33,7 @@ public class ClientDTO implements Serializable {
 		this.cpf = client.getCpf();
 		this.income = client.getIncome();
 		this.birthDate = client.getBirthDate();
-		this.children = client.getChidren();
+		this.children = client.getChildren();
 	}
 
 	public Long getId() {

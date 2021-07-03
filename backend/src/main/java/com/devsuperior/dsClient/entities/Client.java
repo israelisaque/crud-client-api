@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +27,12 @@ public class Client implements Serializable {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
 	private Integer children;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updateAt;
 	
 	public Client() {
 	}
@@ -78,12 +86,30 @@ public class Client implements Serializable {
 		this.birthDate = birthDate;
 	}
 
-	public Integer getChidren() {
+	public Integer getChildren() {
 		return children;
 	}
 
-	public void setChidren(Integer chidren) {
-		this.children = chidren;
+	public void setChildren(Integer children) {
+		this.children = children;
+	}
+		
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public Instant getUpdateAt() {
+		return updateAt;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updateAt = Instant.now();
 	}
 
 	@Override
